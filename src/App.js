@@ -4,18 +4,11 @@ import {
   Switch,
   Route,
   Link,
-  useLocation,
-  Redirect
+  useLocation
 } from "react-router-dom";
 
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
+import fakeFriendsArr from './fake_friends'
+import Friend from "./components/Friend";
 
 const clientID = 7560327;
 const clientSecret = '8BapO0AwbPmQFfeTawZS';
@@ -44,12 +37,64 @@ export default function App() {
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
+const proxy = `https://cors-anywhere.herokuapp.com/`;
 
 function MainPage() {
+  const token = localStorage.getItem('token');
+
+  const [friends, setFriends] = useState([]);
+
+  async function getFriends(token) {
+    // const friendApi = `${proxy}https://api.vk.com/method/friends.get?count=5&fields=photo_100&v=5.122&&access_token=${token}`;
+    // const friendsResp = await fetch(friendApi);
+    // console.log(friendsResp);
+    
+    // console.log(await friendsResp.text());
+    // const data = await friendsResp.json();
+    // const friendArr = data.response.items;
+    const friendArr = await Promise.resolve(fakeFriendsArr);
+    console.log(friendArr);
+    setFriends(friendArr)
+  }
+
+  useEffect(() => {
+    if (token && friends.length === 0) {
+      console.log('есть токен, гружу друзей');
+      getFriends(token);
+    }
+  })
+
   return (
     <React.Fragment>
-      <h2>Авторизация</h2>
-      <a style={{display: 'block'}} href={`https://oauth.vk.com/authorize?client_id=${clientID}&display=page&redirect_uri=${redirectCallbackUrl}&scope=friends,offline&response_type=code&v=5.122`}>Авторизоваться</a>
+      {!token && (
+        <React.Fragment>
+          <h2>Авторизация</h2>
+          <a style={{display: 'block'}} href={`https://oauth.vk.com/authorize?client_id=${clientID}&display=page&redirect_uri=${redirectCallbackUrl}&scope=friends,offline&response_type=code&v=5.122`}>Авторизоваться</a>
+        </React.Fragment>
+      )}
+      {friends.length && (
+        <React.Fragment>
+          <ul className="friends">
+            Список друзей:
+            {
+              friends.map((friend, index) => {
+                const {
+                  'first_name': firstName,
+                  'last_name': lastName,
+                  'photo_100': photoLink
+                } = friend;
+
+                const FAKE_PHOTO = 'https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg';
+                return (
+                  <li key={index} className="friends__item">
+                    <Friend firstName={firstName} lastName={lastName} photoLink={FAKE_PHOTO}></Friend>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </React.Fragment>
+      )}
     </React.Fragment>
   )
 }
@@ -61,15 +106,7 @@ function CallbackPage() {
   const code = query.get('code');
   // console.log(code);
 
-  const proxy = `https://cors-anywhere.herokuapp.com/`;
   useEffect(() => {
-    // async function getFriends() {
-    //   const token = await getToken();
-    //   const friendApi = `${proxy}https://api.vk.com/method/friends.get?count=5&fields=photo_100&v=5.122&&access_token=${token}`;
-    //   const friendsResp = await fetch(friendApi);
-    //   const data = await friendsResp.json();
-    //   console.log(data);
-    // }
 
     async function getToken() {
       const result = await fetch(`${proxy}https://oauth.vk.com/access_token?client_id=${clientID}&client_secret=${clientSecret}&redirect_uri=${redirectCallbackUrl}&code=${code}`)
@@ -86,13 +123,8 @@ function CallbackPage() {
 
     // getFriends();
     getToken();
-  }, [])
+  }, [code])
 
-  // if (redirect) {
-  //   return (
-  //     <Redirect to="/somewhere" />
-  //   )
-  // } else {
     return (
       <div>
         {redirect ? window.history.back() : null }
