@@ -52,11 +52,13 @@ function MainPage() {
       {token && (
         <React.Fragment>
           <section className="profile-block">
-            {/* <Profile></Profile> */}
-            <button className="profile-block__logout" onClick={() => {
+            <Suspense fallback={<Preloader></Preloader>}>
+              <Profile profile={resource.profile}></Profile>
+            </Suspense>
+            {/* <button className="profile-block__logout" onClick={() => {
               localStorage.removeItem('token');
               document.location.reload();
-            }}>Выйти</button>
+            }}>Выйти</button> */}
           </section>
           
           <Suspense fallback={<Preloader></Preloader>}>

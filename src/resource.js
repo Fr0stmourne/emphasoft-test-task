@@ -1,4 +1,4 @@
-import { fetchFriends } from "./apiRequests"
+import { fetchFriends, fetchProfile } from "./apiRequests"
 
 function wrapPromise(promise) {
   let status = 'pending'
@@ -30,5 +30,6 @@ function wrapPromise(promise) {
 export function useResource(token) {
   return {
     friends: wrapPromise(fetchFriends(token)),
+    profile: wrapPromise(fetchProfile(token))
   }
 }

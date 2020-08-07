@@ -19,3 +19,14 @@ export async function fetchFriends(token) {
 
   return fakeFriends;
 }
+
+export async function fetchProfile(token) {
+  // await delay(2000);
+
+  const userApi = `${proxy}https://api.vk.com/method/users.get?fields=photo_100&v=5.122&&access_token=${token}`;
+  const resp = await fetch(userApi);
+  const data = await resp.json();
+  return data.response[0];
+
+  // return fakeFriends;
+}
