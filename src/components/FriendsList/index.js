@@ -1,9 +1,13 @@
 import React from 'react';
 import Friend from '../Friend';
+import './index.scss';
 
 export default function FriendsList({friends: friendsResource}) {
   const friends = friendsResource.read()
-  return (<ul className="friends__list">
+  return (
+  <section className="friends">
+    <h2 className="friends__title">Мои друзья:</h2>
+    <ul className="friends__list">
       {
         friends.map((friend, index) => {
           const {
@@ -22,5 +26,6 @@ export default function FriendsList({friends: friendsResource}) {
           )
         })
       }
-    </ul>)
+    </ul>
+  </section>)
 }

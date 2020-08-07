@@ -1,4 +1,4 @@
-import fakeFriendsArr from './fake_friends'
+import { fakeFriends } from './fakeData'
 import { proxy } from './constants'
 
 function delay(ms) {
@@ -17,5 +17,5 @@ export async function fetchFriends(token) {
   // const data = await friendsResp.json();
   // return data.response.items;
 
-  return fakeFriendsArr;
+  return fakeFriends;
 }

@@ -9,10 +9,10 @@ import {
 } from "react-router-dom";
 
 import FriendsList from "./components/FriendsList";
-import './mainPage.scss'
 import Preloader from "./components/Preloader";
 import { useResource } from "./resource";
 import { proxy } from "./constants";
+import Profile from "./components/Profile";
 
 const clientID = 7560327;
 const clientSecret = '8BapO0AwbPmQFfeTawZS';
@@ -50,12 +50,19 @@ function MainPage() {
         </React.Fragment>
       )}
       {token && (
-        <section className="friends">
-          <h1 className="friends__title">Мои друзья:</h1>
+        <React.Fragment>
+          <section className="profile-block">
+            {/* <Profile></Profile> */}
+            <button className="profile-block__logout" onClick={() => {
+              localStorage.removeItem('token');
+              document.location.reload();
+            }}>Выйти</button>
+          </section>
+          
           <Suspense fallback={<Preloader></Preloader>}>
             <FriendsList friends={resource.friends}></FriendsList>
           </Suspense>
-        </section>
+        </React.Fragment>
       )}
     </React.Fragment>
   )

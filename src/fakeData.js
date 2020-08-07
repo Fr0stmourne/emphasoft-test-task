@@ -1,4 +1,4 @@
-export default [{
+const fakeFriends = [{
   "id": 1373072,
   "first_name": "Alex",
   "last_name": "Kouprin",
@@ -33,3 +33,9 @@ export default [{
   "online": 0,
   "track_code": "da23bda15d5C5fokKLhoYfKgL_EbEOgpwxqLYQutcGoDBjuUEzmItRyGkX59vG5hxQXwI45ziCTUAe4P"
   }]
+
+const fakeProfile = {}
+
+export {
+  fakeFriends, fakeProfile
+}
