@@ -1,0 +1,18 @@
+@import './scss/variables.scss';
+
+.friends {
+  font-family: $primary-font-family;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}

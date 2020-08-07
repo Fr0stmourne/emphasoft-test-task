@@ -1,0 +1,46 @@
+@import '../../scss/variables.scss';
+
+.friend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  grid-template-rows: max-content;
+  column-gap: 20px;
+  font-family: $primary-font-family;
+
+  &__photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    align-self: center;
+  }
+
+  &__name {
+    text-decoration: none;
+    border-bottom: 2px solid $link-color;
+    padding-bottom: 3px;
+    transition: 0.1s;
+
+    &:hover,
+    &:focus {
+      padding-top: 2px;
+      padding-bottom: 5px;
+    }
+
+    &:visited {
+      color: $visited-link-color;
+      border-color: $visited-link-color;
+    }
+  }
+
+  &__online {
+    padding: 0 20px;
+    width: 40px;
+  }
+}

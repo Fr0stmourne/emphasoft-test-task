@@ -9,6 +9,7 @@ import {
 
 import fakeFriendsArr from './fake_friends'
 import Friend from "./components/Friend";
+import './mainPage.scss'
 
 const clientID = 7560327;
 const clientSecret = '8BapO0AwbPmQFfeTawZS';
@@ -47,9 +48,6 @@ function MainPage() {
   async function getFriends(token) {
     // const friendApi = `${proxy}https://api.vk.com/method/friends.get?count=5&fields=photo_100&v=5.122&&access_token=${token}`;
     // const friendsResp = await fetch(friendApi);
-    // console.log(friendsResp);
-    
-    // console.log(await friendsResp.text());
     // const data = await friendsResp.json();
     // const friendArr = data.response.items;
     const friendArr = await Promise.resolve(fakeFriendsArr);
@@ -73,27 +71,29 @@ function MainPage() {
         </React.Fragment>
       )}
       {friends.length && (
-        <React.Fragment>
-          <ul className="friends">
-            Список друзей:
+        <section className="friends">
+          <h1 className="friends__title">Мои друзья:</h1>
+          <ul className="friends__list">
             {
               friends.map((friend, index) => {
                 const {
                   'first_name': firstName,
                   'last_name': lastName,
-                  'photo_100': photoLink
+                  'photo_100': photoLink,
+                  online,
+                  id
                 } = friend;
 
                 const FAKE_PHOTO = 'https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg';
                 return (
                   <li key={index} className="friends__item">
-                    <Friend firstName={firstName} lastName={lastName} photoLink={FAKE_PHOTO}></Friend>
+                    <Friend firstName={firstName} lastName={lastName} photoLink={FAKE_PHOTO} online={online} id={id}></Friend>
                   </li>
                 )
               })
             }
           </ul>
-        </React.Fragment>
+        </section>
       )}
     </React.Fragment>
   )
@@ -128,8 +128,9 @@ function CallbackPage() {
     return (
       <div>
         {redirect ? window.history.back() : null }
-        <h2>Вернуться?</h2>
-        <Link to="/">Main</Link>
+        <h1>Страница переадресации</h1>
+        <p>Ожидайте, пока произойдет перенаправление на предыдущую страницу. Если этого не происходит, перейдите по ссылке ниже.</p>
+        <Link to="/">Вернуться на главную</Link>
       </div>
     );
 }
