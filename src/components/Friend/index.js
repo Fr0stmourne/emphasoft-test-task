@@ -10,7 +10,7 @@ export default function Friend({firstName, lastName, photoLink, online, id}) {
       <img className="friend__photo" src={photoLink} alt={`Аватар пользователя ${firstName} ${lastName}`}></img>
       <div className="friend__info">
         <a className="friend__name" href={`https://vk.com/id${id}`} target="_blank" rel="noopener noreferrer">{`${firstName} ${lastName}`}</a>
-        <img className="friend__online" src={online ? onlineImg : offlineImg} alt="Пользователь онлайн"></img>
+        <img className="friend__online" src={online ? onlineImg : offlineImg} alt={online ? "Пользователь онлайн" : "Пользователя нет в сети"}></img>
       </div>
     </div>
   )
