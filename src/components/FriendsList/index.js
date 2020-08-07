@@ -14,10 +14,10 @@ export default function FriendsList({friends: friendsResource}) {
             id
           } = friend;
 
-          {/* const FAKE_PHOTO = 'https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg'; */}
+          const FAKE_PHOTO = 'https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg';
           return (
             <li key={index} className="friends__item">
-              <Friend firstName={firstName} lastName={lastName} photoLink={photoLink} online={online} id={id}></Friend>
+              <Friend firstName={firstName} lastName={lastName} photoLink={FAKE_PHOTO} online={online} id={id}></Friend>
             </li>
           )
         })
