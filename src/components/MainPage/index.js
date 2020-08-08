@@ -6,9 +6,12 @@ import Profile from '../Profile';
 import FriendsList from '../FriendsList';
 import Login from '../Login';
 
-export default function MainPage() {
-  const token = localStorage.getItem('token');
+import './index.scss';
+import LocalStorageProvider from '../../localStorageProvider';
 
+export default function MainPage() {
+  const token = LocalStorageProvider.getToken();
+  console.log('TOKEN', token);
   let resource;
   if (token) {
     resource = useResource(token);
@@ -16,8 +19,7 @@ export default function MainPage() {
 
   return (
     <div className="main-page">
-      {!token && <Login></Login>}
-      {token && (
+      {token ? (
         <>
           <section className="main-page__profile">
             <Suspense fallback={<Preloader></Preloader>}>
@@ -29,7 +31,7 @@ export default function MainPage() {
             <FriendsList friends={resource.friends}></FriendsList>
           </Suspense>
         </>
-      )}
+      ) : <Login/>}
     </div>
   )
 }

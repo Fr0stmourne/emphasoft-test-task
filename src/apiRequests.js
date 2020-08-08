@@ -1,5 +1,5 @@
 import { fakeFriends, fakeProfile } from './fakeData'
-import { proxy } from './constants'
+import { proxy, redirectCallbackUrl, clientSecret, clientID } from './constants'
 
 function delay(ms) {
   return new Promise((resolve, reject) => {
@@ -28,4 +28,10 @@ export async function fetchProfile(token) {
   const resp = await fetch(userApi);
   const data = await resp.json();
   return data.response[0];
+}
+
+export async function fetchToken(code) {
+  const result = await fetch(`${proxy}https://oauth.vk.com/access_token?client_id=${clientID}&client_secret=${clientSecret}&redirect_uri=${redirectCallbackUrl}&code=${code}`)
+  const json = await result.json();
+  return json['access_token'];
 }
