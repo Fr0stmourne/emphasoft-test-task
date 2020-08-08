@@ -5,7 +5,7 @@ const fakeFriends = [{
   "is_closed": true,
   "can_access_closed": false,
   "domain": "kouprin",
-  "photo_100": "https://sun9-16.u...gBZbbhmfY&ava=1",
+  "photo_100": "https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg",
   "online": 0,
   "track_code": "9d0b2557-1EAZPZyjDnwU2i6oi5_r39uUCEOGXqb8ez4wBc6fGKWOlNVkyGPOfIGXxtMl-bfBm1QSGs"
   }, {
@@ -15,7 +15,7 @@ const fakeFriends = [{
   "is_closed": true,
   "can_access_closed": false,
   "domain": "yabalaban",
-  "photo_100": "https://sun9-25.u...OrBEXO6RU&ava=1",
+  "photo_100": "https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg",
   "online": 1,
   "track_code": "db384e8d2lcIhKzG2_lZOUsppES_CpDQ8pvnHWhP5SXpQD0KLB63PFvlnsHW-Flmf4tK_SZ66dPy8oI"
   }, {
@@ -29,7 +29,7 @@ const fakeFriends = [{
   "id": 1,
   "title": "Москва"
   },
-  "photo_100": "https://sun9-32.u..._efea94ac.jpg?ava=1",
+  "photo_100": "https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg",
   "online": 0,
   "track_code": "da23bda15d5C5fokKLhoYfKgL_EbEOgpwxqLYQutcGoDBjuUEzmItRyGkX59vG5hxQXwI45ziCTUAe4P"
   }]

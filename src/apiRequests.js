@@ -1,13 +1,11 @@
-import { fakeFriends, fakeProfile } from './fakeData'
+// import { fakeFriends, fakeProfile } from './fakeData'
 import { proxy, redirectCallbackUrl, clientSecret, clientID } from './constants'
 
-function delay(ms) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, ms);
-  });
-}
-
-
+// function delay(ms) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(resolve, ms);
+//   });
+// }
 
 export async function fetchFriends(token) {
   // await delay(2000);
