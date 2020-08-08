@@ -20,17 +20,12 @@ export default function MainPage() {
   return (
     <div className="main-page">
       {token ? (
-        <>
+        <Suspense fallback={<Preloader></Preloader>}>
           <section className="main-page__profile">
-            <Suspense fallback={<Preloader></Preloader>}>
-              <Profile profile={resource.profile}></Profile>
-            </Suspense>
+              <Profile profile={resource.profile}/>
           </section>
-          
-          <Suspense fallback={<Preloader></Preloader>}>
-            <FriendsList friends={resource.friends}></FriendsList>
-          </Suspense>
-        </>
+          <FriendsList friends={resource.friends}/>
+        </Suspense>
       ) : <Login/>}
     </div>
   )
