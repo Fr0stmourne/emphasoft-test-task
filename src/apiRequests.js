@@ -28,5 +28,4 @@ export async function fetchProfile(token) {
   const resp = await fetch(userApi);
   const data = await resp.json();
   return data.response[0];
-
 }
