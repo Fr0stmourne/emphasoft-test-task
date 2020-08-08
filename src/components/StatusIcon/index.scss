@@ -1,0 +1,9 @@
+@import '../../scss/variables.scss';
+
+.status {
+  fill: $offline-status;
+
+  &_online {
+    fill: $online-status;
+  }
+}

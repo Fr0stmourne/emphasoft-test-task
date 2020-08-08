@@ -31,10 +31,14 @@
     height: fit-content;
     color: $link-color;
     text-decoration: underline;
-    transition: 0.1s;
+    transition: 0.3s;
 
-    &:visited,
+    &:hover,
     &:focus {
+      color: darkgray;
+    }
+
+    &:visited {
       color: $visited-link-color;
     }
   }

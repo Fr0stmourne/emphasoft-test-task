@@ -33,13 +33,11 @@
 
   &__name {
     color: $link-color;
-    padding-bottom: 3px;
-    transition: 0.1s;
+    transition: 0.3s;
 
     &:hover,
     &:focus {
-      padding-top: 2px;
-      padding-bottom: 5px;
+      color: darkgray;
     }
 
     &:visited {
@@ -47,7 +45,7 @@
     }
   }
 
-  &__online {
+  &__status {
     padding: 0 20px;
     width: 40px;
 

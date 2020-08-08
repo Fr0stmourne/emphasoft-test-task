@@ -1,7 +1,6 @@
 import React from 'react';
-import onlineImg from './img/online.png';
-import offlineImg from './img/offline.png';
 import './index.scss';
+import StatusIcon from '../StatusIcon';
 
 export default function Friend({ firstName, lastName, photoLink, online, id }) {
   return (
@@ -18,11 +17,9 @@ export default function Friend({ firstName, lastName, photoLink, online, id }) {
           target="_blank"
           rel="noopener noreferrer"
         >{`${firstName} ${lastName}`}</a>
-        <img
-          className="friend__online"
-          src={online ? onlineImg : offlineImg}
-          alt={online ? 'Пользователь онлайн' : 'Пользователя нет в сети'}
-        ></img>
+        <div className="friend__status">
+          <StatusIcon online={online}></StatusIcon>
+        </div>
       </div>
     </div>
   );
