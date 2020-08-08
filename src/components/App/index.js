@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.scss';
 import './components/Login/index.scss';
-import CallbackPage from './components/CallbackPage';
-import MainPage from './components/MainPage';
+import CallbackPage from '../CallbackPage';
+import MainPage from '../MainPage';
 
 export default function App() {
   return (
