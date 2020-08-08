@@ -1,5 +1,6 @@
 import React from 'react';
 import { clientID, redirectCallbackUrl } from '../../utils/constants';
+import './index.scss';
 
 export default function Login() {
   return (
