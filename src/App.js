@@ -1,15 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.scss';
-import './components/Login/index.scss'
-import CallbackPage from "./components/CallbackPage";
-import MainPage from "./components/MainPage";
+import './components/Login/index.scss';
+import CallbackPage from './components/CallbackPage';
+import MainPage from './components/MainPage';
 
 export default function App() {
   return (

@@ -1,4 +1,4 @@
-import { tokenKey } from "./constants";
+import { tokenKey } from './constants';
 
 export default class LocalStorageProvider {
   static setToken(token) {
@@ -10,7 +10,11 @@ export default class LocalStorageProvider {
   }
 
   static getToken() {
-    return localStorage.getItem(tokenKey);
+    try {
+      return localStorage.getItem(tokenKey);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   static removeToken() {

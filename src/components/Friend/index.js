@@ -1,17 +1,29 @@
-import React from "react";
+import React from 'react';
+import onlineImg from './img/online.png';
+import offlineImg from './img/offline.png';
+import './index.scss';
 
-import './index.scss'; 
-import onlineImg from './img/online.png'
-import offlineImg from './img/offline.png'
-
-export default function Friend({firstName, lastName, photoLink, online, id}) {
+export default function Friend({ firstName, lastName, photoLink, online, id }) {
   return (
     <div className="friend">
-      <img className="friend__photo" src={photoLink} alt={`Аватар пользователя ${firstName} ${lastName}`}></img>
+      <img
+        className="friend__photo"
+        src={photoLink}
+        alt={`Аватар пользователя ${firstName} ${lastName}`}
+      ></img>
       <div className="friend__info">
-        <a className="friend__name" href={`https://vk.com/id${id}`} target="_blank" rel="noopener noreferrer">{`${firstName} ${lastName}`}</a>
-        <img className="friend__online" src={online ? onlineImg : offlineImg} alt={online ? "Пользователь онлайн" : "Пользователя нет в сети"}></img>
+        <a
+          className="friend__name"
+          href={`https://vk.com/id${id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >{`${firstName} ${lastName}`}</a>
+        <img
+          className="friend__online"
+          src={online ? onlineImg : offlineImg}
+          alt={online ? 'Пользователь онлайн' : 'Пользователя нет в сети'}
+        ></img>
       </div>
     </div>
-  )
+  );
 }

@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { Suspense } from 'react';
-import { useResource } from '../../resource';
+import { useResource } from '../../utils/resource';
 import Preloader from '../Preloader';
 import Profile from '../Profile';
 import FriendsList from '../FriendsList';
 import Login from '../Login';
 
 import './index.scss';
-import LocalStorageProvider from '../../localStorageProvider';
+import LocalStorageProvider from '../../utils/localStorageProvider';
 
 export default function MainPage() {
   const token = LocalStorageProvider.getToken();
@@ -22,11 +22,13 @@ export default function MainPage() {
       {token ? (
         <Suspense fallback={<Preloader></Preloader>}>
           <section className="main-page__profile">
-              <Profile profile={resource.profile}/>
+            <Profile profile={resource.profile} />
           </section>
-          <FriendsList friends={resource.friends}/>
+          <FriendsList friends={resource.friends} />
         </Suspense>
-      ) : <Login/>}
+      ) : (
+        <Login />
+      )}
     </div>
-  )
+  );
 }

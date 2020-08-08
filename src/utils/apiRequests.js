@@ -1,5 +1,10 @@
-// import { fakeFriends, fakeProfile } from './fakeData'
-import { proxy, redirectCallbackUrl, clientSecret, clientID } from './constants'
+// import { fakeFriends, fakeProfile } from './fakeData';
+import {
+  proxy,
+  redirectCallbackUrl,
+  clientSecret,
+  clientID,
+} from './constants';
 
 // function delay(ms) {
 //   return new Promise((resolve, reject) => {
@@ -15,7 +20,6 @@ export async function fetchFriends(token) {
   const friendsResp = await fetch(friendApi);
   const data = await friendsResp.json();
   return data.response.items;
-
 }
 
 export async function fetchProfile(token) {
@@ -29,7 +33,9 @@ export async function fetchProfile(token) {
 }
 
 export async function fetchToken(code) {
-  const result = await fetch(`${proxy}https://oauth.vk.com/access_token?client_id=${clientID}&client_secret=${clientSecret}&redirect_uri=${redirectCallbackUrl}&code=${code}`)
+  const result = await fetch(
+    `${proxy}https://oauth.vk.com/access_token?client_id=${clientID}&client_secret=${clientSecret}&redirect_uri=${redirectCallbackUrl}&code=${code}`
+  );
   const json = await result.json();
   return json['access_token'];
 }
