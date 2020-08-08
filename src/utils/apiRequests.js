@@ -16,7 +16,7 @@ export async function fetchFriends(token) {
   // await delay(2000);
   // return fakeFriends;
 
-  const friendApi = `${proxy}https://api.vk.com/method/friends.get?count=5&fields=photo_100&v=5.122&&access_token=${token}`;
+  const friendApi = `${proxy}https://api.vk.com/method/friends.get?count=5&order=random&fields=photo_100&v=5.122&&access_token=${token}`;
   const friendsResp = await fetch(friendApi);
   const data = await friendsResp.json();
   return data.response.items;
