@@ -1,15 +1,16 @@
 import React from 'react';
+import './index.scss';
 
 export default function Profile({profile: profileResource}) {
-  const {'first_name': firstName, 'last_name': lastName, 'photo_100': photoLink, id} = profileResource.read();
-  // const profile = 
-  // console.log(profile);
+  const {'first_name': firstName, 'last_name': lastName, 'photo_400_orig': photoLink, id} = profileResource.read();
   return (
     <div className="profile">
       <img className="profile__photo" src={photoLink} alt={`Аватар пользователя ${firstName} ${lastName}`}></img>
-      <div className="profile__info">
-        <a className="profile__name" href={`https://vk.com/id${id}`} target="_blank" rel="noopener noreferrer">{`${firstName} ${lastName}`}</a>
-      </div>
+      <a className="profile__name" href={`https://vk.com/id${id}`} target="_blank" rel="noopener noreferrer">{`${firstName} ${lastName}`}</a>
+      <button className="profile__logout" onClick={() => {
+        localStorage.removeItem('token');
+        document.location.reload();
+      }}>Выйти</button>
     </div>
   )
 }

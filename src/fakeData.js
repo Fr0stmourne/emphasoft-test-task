@@ -10,8 +10,8 @@ const fakeFriends = [{
   "track_code": "9d0b2557-1EAZPZyjDnwU2i6oi5_r39uUCEOGXqb8ez4wBc6fGKWOlNVkyGPOfIGXxtMl-bfBm1QSGs"
   }, {
   "id": 5485951,
-  "first_name": "Alexander",
-  "last_name": "Balaban",
+  "first_name": "Константин",
+  "last_name": "Константинопольский",
   "is_closed": true,
   "can_access_closed": false,
   "domain": "yabalaban",
@@ -34,7 +34,19 @@ const fakeFriends = [{
   "track_code": "da23bda15d5C5fokKLhoYfKgL_EbEOgpwxqLYQutcGoDBjuUEzmItRyGkX59vG5hxQXwI45ziCTUAe4P"
   }]
 
-const fakeProfile = {}
+const fakeProfile = {
+  "id": 210700286,
+  "first_name": "Константин",
+  "last_name": "Константинопольский",
+  "is_closed": false,
+  "can_access_closed": true,
+  "city": {
+  "id": 5331,
+  "title": "Los Angeles"
+  },
+  "photo_400_orig": 'https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg',
+  "verified": 1
+};
 
 export {
   fakeFriends, fakeProfile

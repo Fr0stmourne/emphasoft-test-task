@@ -13,6 +13,8 @@ import Preloader from "./components/Preloader";
 import { useResource } from "./resource";
 import { proxy } from "./constants";
 import Profile from "./components/Profile";
+import './App.scss';
+import './components/Login/index.scss'
 
 const clientID = 7560327;
 const clientSecret = '8BapO0AwbPmQFfeTawZS';
@@ -42,31 +44,27 @@ function MainPage() {
   }
 
   return (
-    <React.Fragment>
+    <div className="app">
       {!token && (
-        <React.Fragment>
-          <h2>Авторизация</h2>
-          <a style={{display: 'block'}} href={`https://oauth.vk.com/authorize?client_id=${clientID}&display=page&redirect_uri=${redirectCallbackUrl}&scope=friends,offline&response_type=code&v=5.122`}>Авторизоваться</a>
-        </React.Fragment>
+        <div className="login">
+          <h1 className="login__title">Авторизация</h1>
+          <a className="login__button" style={{display: 'block'}} href={`https://oauth.vk.com/authorize?client_id=${clientID}&display=page&redirect_uri=${redirectCallbackUrl}&scope=friends,offline&response_type=code&v=5.122`}><span className="visually-hidden">Авторизоваться</span></a>
+        </div>
       )}
       {token && (
-        <React.Fragment>
-          <section className="profile-block">
+        <div className="main-page">
+          <section className="main-page__profile">
             <Suspense fallback={<Preloader></Preloader>}>
               <Profile profile={resource.profile}></Profile>
             </Suspense>
-            {/* <button className="profile-block__logout" onClick={() => {
-              localStorage.removeItem('token');
-              document.location.reload();
-            }}>Выйти</button> */}
           </section>
           
           <Suspense fallback={<Preloader></Preloader>}>
             <FriendsList friends={resource.friends}></FriendsList>
           </Suspense>
-        </React.Fragment>
+        </div>
       )}
-    </React.Fragment>
+    </div>
   )
 }
 
