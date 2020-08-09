@@ -29,7 +29,7 @@ export default function FriendsList({
           } = friend;
 
           return (
-            <li key={index} className="friends__item">
+            <li key={id || index} className="friends__item">
               <Friend
                 firstName={firstName}
                 lastName={lastName}
