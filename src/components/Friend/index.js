@@ -1,8 +1,16 @@
 import React from 'react';
-import './index.scss';
 import StatusIcon from '../StatusIcon';
+import PropTypes from 'prop-types';
+import { fakePhoto } from '../../utils/fakeData';
+import './index.scss';
 
-export default function Friend({ firstName, lastName, photoLink, online, id }) {
+export default function Friend({
+  firstName = 'Имя',
+  lastName = 'Фамилия',
+  photoLink = fakePhoto,
+  online = false,
+  id = 0,
+}) {
   return (
     <div className="friend">
       <img
@@ -24,3 +32,11 @@ export default function Friend({ firstName, lastName, photoLink, online, id }) {
     </div>
   );
 }
+
+Friend.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  photoLink: PropTypes.string,
+  online: PropTypes.bool,
+  id: PropTypes.number,
+};

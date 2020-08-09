@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
-export default function StatusIcon({ online }) {
+export default function StatusIcon({ online = false }) {
   return (
     <svg
       className={`status ${online && 'status_online'}`}
@@ -15,3 +16,7 @@ export default function StatusIcon({ online }) {
     </svg>
   );
 }
+
+StatusIcon.propTypes = {
+  online: PropTypes.bool,
+};

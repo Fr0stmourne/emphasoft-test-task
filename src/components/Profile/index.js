@@ -1,8 +1,18 @@
 import React from 'react';
-import './index.scss';
 import LocalStorageProvider from '../../utils/localStorageProvider';
+import PropTypes from 'prop-types';
+import './index.scss';
 
-export default function Profile({ profile: profileResource }) {
+const defaultResource = {
+  read() {
+    return {};
+  },
+};
+
+export default function Profile({
+  buttonText = 'Выйти',
+  profile: profileResource = defaultResource,
+}) {
   const {
     first_name: firstName,
     last_name: lastName,
@@ -29,8 +39,13 @@ export default function Profile({ profile: profileResource }) {
           document.location.reload();
         }}
       >
-        Выйти
+        {buttonText}
       </button>
     </div>
   );
 }
+
+Profile.propTypes = {
+  buttonText: PropTypes.string,
+  profileResource: PropTypes.object,
+};

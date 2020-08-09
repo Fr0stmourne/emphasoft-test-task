@@ -59,4 +59,7 @@ const fakeProfile = {
   verified: 1,
 };
 
-export { fakeFriends, fakeProfile };
+const fakePhoto =
+  'https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg';
+
+export { fakeFriends, fakeProfile, fakePhoto };

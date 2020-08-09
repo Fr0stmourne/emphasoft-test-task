@@ -1,12 +1,22 @@
 import React from 'react';
 import Friend from '../Friend';
+import PropTypes from 'prop-types';
 import './index.scss';
 
-export default function FriendsList({ friends: friendsResource }) {
+const defaultResource = {
+  read() {
+    return [];
+  },
+};
+
+export default function FriendsList({
+  title = 'Мои друзья:',
+  friends: friendsResource = defaultResource,
+}) {
   const friends = friendsResource.read();
   return (
     <section className="friends">
-      <h2 className="friends__title">Мои друзья:</h2>
+      <h2 className="friends__title">{title}</h2>
       <ul className="friends__list">
         {friends.map((friend, index) => {
           const {
@@ -24,7 +34,7 @@ export default function FriendsList({ friends: friendsResource }) {
                 lastName={lastName}
                 photoLink={photoLink}
                 online={online}
-                id={id}
+                id={Boolean(id)}
               ></Friend>
             </li>
           );
@@ -33,3 +43,8 @@ export default function FriendsList({ friends: friendsResource }) {
     </section>
   );
 }
+
+FriendsList.propTypes = {
+  friends: PropTypes.object,
+  title: PropTypes.string,
+};

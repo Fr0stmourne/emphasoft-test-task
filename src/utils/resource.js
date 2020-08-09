@@ -27,7 +27,7 @@ function wrapPromise(promise) {
   };
 }
 
-export function useResource(token) {
+export function getResource(token) {
   return {
     friends: wrapPromise(fetchFriends(token)),
     profile: wrapPromise(fetchProfile(token)),
