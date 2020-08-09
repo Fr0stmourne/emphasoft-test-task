@@ -2,10 +2,16 @@ import React from 'react';
 import LocalStorageProvider from '../../utils/localStorageProvider';
 import PropTypes from 'prop-types';
 import './index.scss';
+import { fakePhoto } from '../../utils/fakeData';
 
 const defaultResource = {
   read() {
-    return {};
+    return {
+      first_name: 'Имя',
+      last_name: 'Фамилия',
+      photo_400_orig: fakePhoto,
+      id: 0,
+    };
   },
 };
 

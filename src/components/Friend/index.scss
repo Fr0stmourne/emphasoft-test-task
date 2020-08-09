@@ -42,6 +42,10 @@
 
     &:visited {
       color: $visited-link-color;
+
+      &:hover {
+        color: lighten($visited-link-color, 20%);
+      }
     }
   }
 

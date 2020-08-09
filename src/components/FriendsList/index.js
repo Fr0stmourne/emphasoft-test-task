@@ -2,10 +2,11 @@ import React from 'react';
 import Friend from '../Friend';
 import PropTypes from 'prop-types';
 import './index.scss';
+import { fakeFriends } from '../../utils/fakeData';
 
 const defaultResource = {
   read() {
-    return [];
+    return fakeFriends;
   },
 };
 
