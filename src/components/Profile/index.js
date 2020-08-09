@@ -15,6 +15,11 @@ const defaultResource = {
   },
 };
 
+const logoutUser = () => {
+  LocalStorageProvider.removeToken();
+  document.location.reload();
+};
+
 export default function Profile({
   buttonText = 'Выйти',
   profile: profileResource = defaultResource,
@@ -38,13 +43,7 @@ export default function Profile({
         target="_blank"
         rel="noopener noreferrer"
       >{`${firstName} ${lastName}`}</a>
-      <button
-        className="profile__logout"
-        onClick={() => {
-          LocalStorageProvider.removeToken();
-          document.location.reload();
-        }}
-      >
+      <button className="profile__logout" onClick={logoutUser}>
         {buttonText}
       </button>
     </div>

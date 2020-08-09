@@ -34,8 +34,8 @@ export default function FriendsList({
                 firstName={firstName}
                 lastName={lastName}
                 photoLink={photoLink}
-                online={online}
-                id={Boolean(id)}
+                online={Boolean(online)}
+                id={id}
               ></Friend>
             </li>
           );

@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FriendsList component should render the component correctly when no props are provided 1`] = `
+<section
+  className="friends"
+>
+  <h2
+    className="friends__title"
+  >
+    Мои друзья:
+  </h2>
+  <ul
+    className="friends__list"
+  >
+    <li
+      className="friends__item"
+    >
+      <Friend
+        firstName="Alex"
+        id={1373072}
+        lastName="Kouprin"
+        online={false}
+        photoLink="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+      />
+    </li>
+    <li
+      className="friends__item"
+    >
+      <Friend
+        firstName="Константин"
+        id={5485951}
+        lastName="Константинопольский"
+        online={true}
+        photoLink="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+      />
+    </li>
+    <li
+      className="friends__item"
+    >
+      <Friend
+        firstName="Alexander"
+        id={84317567}
+        lastName="Bykov"
+        online={false}
+        photoLink="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+      />
+    </li>
+  </ul>
+</section>
+`;
+
+exports[`FriendsList component should render the component with custom props correctly 1`] = `
+<section
+  className="friends"
+>
+  <h2
+    className="friends__title"
+  >
+    My friends:
+  </h2>
+  <ul
+    className="friends__list"
+  >
+    <li
+      className="friends__item"
+    >
+      <Friend
+        firstName="Alex"
+        id={1373072}
+        lastName="Kouprin"
+        online={false}
+        photoLink="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+      />
+    </li>
+    <li
+      className="friends__item"
+    >
+      <Friend
+        firstName="Константин"
+        id={5485951}
+        lastName="Константинопольский"
+        online={true}
+        photoLink="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+      />
+    </li>
+    <li
+      className="friends__item"
+    >
+      <Friend
+        firstName="Alexander"
+        id={84317567}
+        lastName="Bykov"
+        online={false}
+        photoLink="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+      />
+    </li>
+  </ul>
+</section>
+`;

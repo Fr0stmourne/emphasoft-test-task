@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile component should render the component correctly when no props are provided 1`] = `
+<div
+  className="profile"
+>
+  <img
+    alt="Аватар пользователя Имя Фамилия"
+    className="profile__photo"
+    src="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+  />
+  <a
+    className="profile__name"
+    href="https://vk.com/id0"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Имя Фамилия
+  </a>
+  <button
+    className="profile__logout"
+    onClick={[Function]}
+  >
+    Выйти
+  </button>
+</div>
+`;
+
+exports[`Profile component should render the component with custom props correctly 1`] = `
+<div
+  className="profile"
+>
+  <img
+    alt="Аватар пользователя Имя Фамилия"
+    className="profile__photo"
+    src="https://sun9-49.userapi.com/c855536/v855536573/24b6e1/Vx9ANB_8sos.jpg"
+  />
+  <a
+    className="profile__name"
+    href="https://vk.com/id0"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Имя Фамилия
+  </a>
+  <button
+    className="profile__logout"
+    onClick={[Function]}
+  >
+    Log out
+  </button>
+</div>
+`;

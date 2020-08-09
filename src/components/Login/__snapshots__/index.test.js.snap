@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Friend component should render the component correctly when no props are provided 1`] = `
+<div
+  className="login"
+>
+  <h1
+    className="login__title"
+  >
+    Авторизация
+  </h1>
+  <a
+    className="login__button"
+    href="https://oauth.vk.com/authorize?client_id=7560327&display=page&redirect_uri=http://localhost:3000/auth/vkontakte/callback&scope=friends,offline&response_type=code&v=5.122"
+  >
+    <span
+      className="visually-hidden"
+    >
+      Авторизоваться Вконтакте
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Friend component should render the component with custom props correctly 1`] = `
+<div
+  className="login"
+>
+  <h1
+    className="login__title"
+  >
+    Auth
+  </h1>
+  <a
+    className="login__button"
+    href="https://oauth.vk.com/authorize?client_id=7560327&display=page&redirect_uri=http://localhost:3000/auth/vkontakte/callback&scope=friends,offline&response_type=code&v=5.122"
+  >
+    <span
+      className="visually-hidden"
+    >
+      Log in
+    </span>
+  </a>
+</div>
+`;

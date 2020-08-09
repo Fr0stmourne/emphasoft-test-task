@@ -22,12 +22,8 @@ export default function CallbackPage({
   useEffect(() => {
     async function getToken(code) {
       const token = await fetchToken(code);
-      try {
-        LocalStorageProvider.setToken(token);
-        setRedirect(true);
-      } catch (error) {
-        console.log(error);
-      }
+      LocalStorageProvider.setToken(token);
+      setRedirect(true);
     }
 
     getToken(code);
